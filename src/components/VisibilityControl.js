@@ -11,14 +11,16 @@ export const VisibilityControl = ({
   };
 
   return (
-    <div className="form-check form-switch d-flex justify-content-between">
-      <input
-        type="checkbox"
-        className="form-check-input"
-        checked={isChecked}
-        onChange={(e) => callback(e.target.checked)}
-      />
-      <label htmlFor="form-check-label">Show {description}</label>
+    <div className="d-flex justify-content-between bg-secondary text-white text-center p-2 border-secondary">
+      <div className="form-check form-switch">
+        <input
+          type="checkbox"
+          className="form-check-input"
+          checked={isChecked}
+          onChange={(e) => callback(e.target.checked)}
+        />
+        <label htmlFor="form-check-label">Show {description}</label>
+      </div>
       <button className="btn btn-danger btn-sm" onClick={handleDelete}>
         Clear
       </button>

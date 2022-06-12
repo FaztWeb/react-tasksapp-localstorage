@@ -3,8 +3,6 @@ import { useState } from "react";
 export const TaskCreator = ({ createNewTask }) => {
   const [newTaskName, setNewTaskName] = useState("");
 
-  const updateNewTaskValue = ({ target: { value } }) => setNewTaskName(value);
-
   const handleSubmit = (e) => {
     if (newTaskName.trim() === "") {
       alert("Please enter a task name");
@@ -23,15 +21,16 @@ export const TaskCreator = ({ createNewTask }) => {
           type="text"
           className="form-control"
           value={newTaskName}
-          onChange={updateNewTaskValue}
+          onChange={(e) => setNewTaskName(e.target.value)}
           placeholder="Enter a new task..."
           autoFocus
         />
       </div>
-    <div className="col-3 p-0 d-flex align-items-center">
-
-      <button className="btn btn-primary btn-sm">Save Task</button>
-    </div>
+      <div className="col-3 p-0 d-flex align-items-center">
+        <button className="btn btn-primary btn-sm" type="submit">
+          Save Task
+        </button>
+      </div>
     </form>
   );
 };
