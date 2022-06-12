@@ -1,13 +1,11 @@
-import React from "react";
-
-export const TaskRow = props => (
-  <tr key={props.task.name}>
-    <td>{props.task.name}</td>
-    <td>
+export const TaskRow = ({ task, toggleTask }) => (
+  <tr key={task.name}>
+    <td className="d-flex justify-content-between">
+      {task.name}
       <input
         type="checkbox"
-        checked={props.task.done}
-        onChange={() => props.toggleTask(props.task)}
+        checked={task.done}
+        onChange={() => toggleTask(task)}
       />
     </td>
   </tr>

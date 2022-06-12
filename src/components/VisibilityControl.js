@@ -1,17 +1,27 @@
-import React from "react";
+export const VisibilityControl = ({
+  isChecked,
+  callback,
+  description,
+  cleanTasks,
+}) => {
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete all ${description}?`)) {
+      cleanTasks();
+    }
+  };
 
-export const VisibilityControl = props => {
   return (
-    <div className="form-check">
+    <div className="form-check form-switch d-flex justify-content-between">
       <input
         type="checkbox"
         className="form-check-input"
-        checked={props.isChecked}
-        onChange={ e => props.callback(e.target.checked)}
+        checked={isChecked}
+        onChange={(e) => callback(e.target.checked)}
       />
-      <label htmlFor="form-check-label">
-        Show { props.description }
-      </label>
+      <label htmlFor="form-check-label">Show {description}</label>
+      <button className="btn btn-danger btn-sm" onClick={handleDelete}>
+        Clear
+      </button>
     </div>
   );
 };
