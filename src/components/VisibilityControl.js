@@ -5,7 +5,9 @@ export const VisibilityControl = ({
   cleanTasks,
 }) => {
   const handleDelete = () => {
-    if (window.confirm(`Are you sure you want to delete all ${description}?`)) {
+    if (
+      window.confirm(`Está seguro que quiere borrar toas las ${description}?`)
+    ) {
       cleanTasks();
     }
   };
@@ -19,10 +21,10 @@ export const VisibilityControl = ({
           checked={isChecked}
           onChange={(e) => callback(e.target.checked)}
         />
-        <label htmlFor="form-check-label">Show {description}</label>
+        <label htmlFor="form-check-label">Guardar {description}</label>
       </div>
       <button className="btn btn-danger btn-sm" onClick={handleDelete}>
-        Clear
+        Borrar
       </button>
     </div>
   );

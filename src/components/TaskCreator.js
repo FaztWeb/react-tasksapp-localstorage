@@ -5,7 +5,7 @@ export const TaskCreator = ({ createNewTask }) => {
 
   const handleSubmit = (e) => {
     if (newTaskName.trim() === "") {
-      alert("Please enter a task name");
+      alert("Por favor ingrese el nombre de su tarea");
       return;
     }
 
@@ -22,13 +22,13 @@ export const TaskCreator = ({ createNewTask }) => {
           className="form-control"
           value={newTaskName}
           onChange={(e) => setNewTaskName(e.target.value)}
-          placeholder="Enter a new task..."
+          placeholder="Ingresa tú tarea..."
           autoFocus
         />
       </div>
       <div className="col-3 p-0 d-flex align-items-center">
         <button className="btn btn-primary btn-sm" type="submit">
-          Save Task
+          Guardar
         </button>
       </div>
     </form>
