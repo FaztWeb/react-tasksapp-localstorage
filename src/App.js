@@ -6,20 +6,20 @@ import { TaskTable } from "./components/TaskTable";
 import { Container } from "./components/Container";
 
 function App() {
-  const [userName, setUserName] = useState("Fazt");
+  const [userName, setUserName] = useState("Maxi");
   const [taskItems, setTaskItems] = useState([]);
   const [showCompleted, setshowCompleted] = useState(false);
 
   useEffect(() => {
-    let data = localStorage.getItem("tasks");
+    let data = localStorage.getItem("Tareas");
     if (data) {
       setTaskItems(JSON.parse(data));
     }
-    setUserName("fazt");
+    setUserName("Maxi");
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(taskItems));
+    localStorage.setItem("tareas", JSON.stringify(taskItems));
   }, [taskItems]);
 
   const createNewTask = (taskName) => {
@@ -44,7 +44,7 @@ function App() {
         <TaskCreator createNewTask={createNewTask} />
         <TaskTable tasks={taskItems} toggleTask={toggleTask} />
         <VisibilityControl
-          description="Completed Tasks"
+          description="Tareas completadas"
           isChecked={showCompleted}
           callback={(checked) => setshowCompleted(checked)}
           cleanTasks={cleanTasks}
